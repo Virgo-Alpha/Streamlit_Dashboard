@@ -25,13 +25,15 @@ def load_data(path: str):
 
 with st.sidebar: # could also be middleware e.g. st.sidebar.title()
     st.header("Configuration")
-    uploaded_file = st.file_uploader("Choose a file")
+    uploaded_file = st.file_uploader("Choose a file") or "./Financial Data Clean.xlsx"
 
-if uploaded_file is None:
-    st.info(":information_source: Please upload a file of type: xls, xlsx, csv through config")
-    st.stop()
+st.info(":information_source: Please upload a file of type: xls, xlsx, csv through config")
 
-    # uploaded_file = "./Financial Data Clean.xlsx"
+# if uploaded_file is None:
+#     st.info(":information_source: Please upload a file of type: xls, xlsx, csv through config")
+#     st.stop()
+
+# uploaded_file = "./Financial Data Clean.xlsx" # placeholder
 
 df = load_data(uploaded_file)
 all_months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
@@ -61,10 +63,12 @@ def plot_metric(label, value, prefix="", suffix="", show_graph=False, color_grap
                 "prefix": prefix,
                 "suffix": suffix,
                 "font.size": 28,
+                "font.color": "black",
             },
             title={
                 "text": label,
-                "font": {"size": 24},
+                "font.color": "black",
+                "font": {"size": 20},
             },
         )
     )
