@@ -31,6 +31,8 @@ if uploaded_file is None:
     st.info(":information_source: Please upload a file of type: xls, xlsx, csv through config")
     st.stop()
 
+    # uploaded_file = "./Financial Data Clean.xlsx"
+
 df = load_data(uploaded_file)
 all_months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 
