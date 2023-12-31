@@ -23,7 +23,7 @@ def load_data(path: str):
     # light cleaning allowed here
     return data
 
-with st.sidebar: # could also be middleware e.g. st.sidebar.title()
+with st.sidebar: # ! could also be middleware e.g. st.sidebar.title()
     st.header("Configuration")
     uploaded_file = st.file_uploader("Choose a file") or "./Financial Data Clean.xlsx"
 
@@ -38,7 +38,7 @@ st.info(":information_source: Please upload a file of type: xls, xlsx, csv throu
 df = load_data(uploaded_file)
 all_months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 
-# hide the df with an expander
+# ! hide the df with an expander
 with st.expander("Data Preview"):
     st.dataframe(
         df,
